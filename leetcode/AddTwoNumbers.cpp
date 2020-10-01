@@ -1,6 +1,7 @@
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        //Linked List Node
         ListNode* head2 = l2;
         int add=0, carri=0;
         while(l1->next != NULL && l2->next != NULL){
