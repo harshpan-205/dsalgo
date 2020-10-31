@@ -22,15 +22,6 @@ public boolean hasPathSum(TreeNode root, int sum) {
             }
             return Integer.MAX_VALUE;
         }
-        else if(root.left==null && root.right!=null) {
-            int right = helper(root.right,sum,target+root.val);
-            if(right == sum) {
-                return sum; 
-            }
-                return Integer.MAX_VALUE;
-        }
-        else {
-            return target+root.val; 
-        }
+       
                 
    }
