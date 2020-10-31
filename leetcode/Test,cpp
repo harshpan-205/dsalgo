@@ -1,0 +1,36 @@
+public boolean hasPathSum(TreeNode root, int sum) {
+        if(root==null) {
+            return false;
+        }
+       return  helper(root,sum,0) == sum;     
+    }
+    
+    private int helper(TreeNode root, int sum, int target) {
+        if(root.left!=null&&root.right!=null) {      
+            int left = helper(root.left,sum, target+root.val);
+            int right = helper(root.right,sum,target+root.val);
+            if(left==sum || right==sum) {
+                return sum;
+            }
+                return Integer.MAX_VALUE;
+        }
+        
+        else if(root.left!=null && root.right==null) {
+            int left = helper(root.left,sum, target+root.val);
+            if(left == sum) {
+                return sum;
+            }
+            return Integer.MAX_VALUE;
+        }
+        else if(root.left==null && root.right!=null) {
+            int right = helper(root.right,sum,target+root.val);
+            if(right == sum) {
+                return sum; 
+            }
+                return Integer.MAX_VALUE;
+        }
+        else {
+            return target+root.val; 
+        }
+                
+   }
